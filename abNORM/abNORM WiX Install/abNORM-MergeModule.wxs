@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+  <Module Id="File1" Guid="FFE9F4D7-4EA8-41CB-BFCA-64C7327A0AAE" Language="0" Version="0.2.100">
+    <Package Id="FFE9F4D7-4EA8-41CB-BFCA-64C7327A0AAE" InstallerVersion="200" Languages="1033" Manufacturer="Thomas Glaser" SummaryCodepage="1252" AdminImage="no" ShortNames="no" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="INSTALLDIR" Name="abNORM01" LongName="abNORM 0.2">
+          <Component Id="abnorm_dll" Guid="07384609-8307-458F-A446-1BB46D51D668">
+            <File Id="abNORM.dll" LongName="abNORM.dll" Name="ABNORM.DLL" 
+	                 Source="..\bin\Debug\abNORM.dll"
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="ingres_client" Guid="27B8F55E-745E-455F-B918-B70FE6CF3F44">
+            <File Id="Ingres.Client.dll" LongName="Ingres.Client.dll" Name="INGRES..DLL" 
+	                 Source="..\external-libs\ingres-dataprovider\ingres2006-9.1.0-123-gpl-DotNet\Ingres.Client.dll"
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="postgres_client" Guid="74BB1859-B739-49A5-AF06-00CF7DC17C74">
+            <File Id="Npgsql.dll" LongName="Npgsql.dll" Name="NPGSQL.DLL" 
+	                 Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\Npgsql.dll"
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="mono_sec" Guid="AFA31EA1-A8B5-462D-A7EF-1D12CD47C991">
+            <File Id="Mono.Security.dll" LongName="Mono.Security.dll" Name="MONO.SE.DLL" 
+	                 Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\Mono.Security.dll"
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="lic_stuff" Guid="F2E86FCE-D436-4CDE-926D-A22A8AB1FF43">
+            <File Id="IngresLicense.txt" LongName="Ingres Dataprovider License.txt" Name="INGLIC.TXT" 
+       	          Source="..\external-libs\ingres-dataprovider\ingres2006-9.1.0-123-gpl-DotNet\License.txt" />
+            <File Id="abNORMLicense.txt" LongName="abNORM License.txt" Name="abNLIC.TXT" 
+	                 Source="..\License.txt" />
+            <File Id="ChangeLog.txt" LongName="ChangeLog.txt" Name="CHANGEL.TXT" 
+       	          Source="..\ChangeLog.txt" />
+            <File Id="PostgresqlLICENSE.txt" LongName="Npgsql LICENSE.txt" Name="POSTLIC.TXT" 
+       	          Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\LICENSE.txt" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+    <UI />
+  </Module>
+</Wix>

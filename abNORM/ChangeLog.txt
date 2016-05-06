@@ -1,0 +1,42 @@
+abNORM 0.2.100 (Beta 1)
+=======================
+ - Added support for forward and reverse engineering for oracle and postgres
+
+abNORM 0.1.104
+==============
+ - Fixes
+   - #1803306 Duplicate key on Insert
+   - #1804040 Blank date as DateTime.MinValue on Ingres
+
+abNORM 0.1.103
+==============
+ - Critical Fix
+    - #1796995 Locked ressources on failed insert
+
+abNORM 0.1.102 (stable)
+=======================
+ - Small bugfix in the ModelGenerator
+ - Added a "You need to be Admin" to the installer, since, 
+   the assemblys can only be registered in the GAC as Admin.
+
+abNORM 0.1.101 (RC 1)
+=====================
+ - Completely rewritten Deployment (for Windows)
+   - Deployment is WiX based now (wix.sourceforge.net)
+   - All assemblys get installed to the Global Assembly Cache
+   - Merge module is included in the .msi File
+ - Improvements to the Transaction handling.
+
+abNORM 0.1.100 (Beta 1)
+=======================
+The first release contains:
+- Full object mapping feature set 
+- Creating tables/sequences/foreign keys in the database from annotated C# classes 
+- Creating C# classes from database tables (only Ingres supported at the moment) 
+- Database Concurrency Detection
+- Differential Updates
+- Supported database-backends: 
+  - Ingres 
+  - Postgres 
+  - Oracle 
+- .NET drivers for backend databases are included 

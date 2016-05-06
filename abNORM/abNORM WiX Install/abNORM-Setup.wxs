@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2003/01/wi">
+  <Product Name="abNORM 0.2" Id="B9D492E5-4305-4B9C-9E18-C4426C57D66C" 
+           Language="1031" Codepage="1252" Version="0.2.100" Manufacturer="Thomas Glaser">
+    <Package Id="????????-????-????-????-????????????" Keywords="Installer" 
+             Description="abNORM 0.2 Setup" Comments="abNORM is free software under the terms of the GPLv2" 
+	     Manufacturer="Thomas Glaser" InstallerVersion="100" Languages="1031" Compressed="yes" SummaryCodepage="1252" />
+    <Condition Message="You need to be an administrator to install this product.">
+      Privileged
+    </Condition>    
+    <Media Id="1" Cabinet="Setup.cab" EmbedCab="yes" DiskPrompt="CD-ROM #1" />
+    <Property Id="DiskPrompt" Value="abNORM Installation [1]" />
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder" Name="PFiles">
+        <Directory Id="INSTALLDIR" Name="abNORM01" LongName="abNORM 0.2">
+          <Component Id="abnorm_dll" Guid="07384609-8307-458F-A446-1BB46D51D668">
+            <File Id="abNORM.dll" LongName="abNORM.dll" Name="ABNORM.DLL" 
+	                 Source="..\bin\Debug\abNORM.dll" DiskId="1" 
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="ingres_client" Guid="27B8F55E-745E-455F-B918-B70FE6CF3F44">
+            <File Id="Ingres.Client.dll" LongName="Ingres.Client.dll" Name="INGRES..DLL" 
+	                 Source="..\external-libs\ingres-dataprovider\ingres2006-9.1.0-123-gpl-DotNet\Ingres.Client.dll" DiskId="1" 
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="postgres_client" Guid="74BB1859-B739-49A5-AF06-00CF7DC17C74">
+            <File Id="Npgsql.dll" LongName="Npgsql.dll" Name="NPGSQL.DLL" 
+	                 Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\Npgsql.dll" DiskId="1" 
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="mono_sec" Guid="AFA31EA1-A8B5-462D-A7EF-1D12CD47C991">
+            <File Id="Mono.Security.dll" LongName="Mono.Security.dll" Name="MONO.SE.DLL" 
+	                 Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\Mono.Security.dll" DiskId="1" 
+                  Assembly=".net" KeyPath="yes" Vital="yes"/>
+          </Component>
+          <Component Id="lic_stuff" Guid="F2E86FCE-D436-4CDE-926D-A22A8AB1FF43">
+            <File Id="IngresLicense.txt" LongName="Ingres Dataprovider License.txt" Name="INGLIC.TXT" 
+       	          Source="..\external-libs\ingres-dataprovider\ingres2006-9.1.0-123-gpl-DotNet\License.txt" DiskId="1" />
+            <File Id="abNORMLicense.txt" LongName="abNORM License.txt" Name="abNLIC.TXT" 
+	                 Source="..\License.txt" DiskId="1" />
+            <File Id="ChangeLog.txt" LongName="ChangeLog.txt" Name="CHANGEL.TXT" 
+       	          Source="..\ChangeLog.txt" DiskId="1" />
+            <File Id="PostgresqlLICENSE.txt" LongName="Npgsql LICENSE.txt" Name="POSTLIC.TXT" 
+       	          Source="..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\LICENSE.txt" DiskId="1" />
+          </Component>
+          <Component Id="ModelGen" Guid="5C31647C-8C01-4133-ACFC-07A81EE78B51">
+            <File Id="ModelGenerator" LongName="abNORM.ModelGenerator.exe" Name="ModGen.exe"
+                  Source="..\bin\Debug\abNORM.ModelGenerator.exe" DiskId="1" />
+          </Component>
+          <Directory Id="MergeDir" LongName="Merges" Name="Merges">
+            <Component Id="Merges" Guid="BA4C9887-DB6F-401F-823F-4ABC36A1E508">
+              <File Id="CoreMerge" LongName="abNORM-MergeModule.msm" Name="abMerge.msm"
+                    Source="abNORM-MergeModule.msm" DiskId="1"/>
+            </Component>
+          </Directory>
+          <Directory Id="Example" LongName="Example" Name="Example">
+            <Component Id="Example" Guid="095BD54A-CA8E-47F3-8963-FA708D68CEB5">
+              <File Id="_01_Simple.cs" LongName="01_Simple.cs" Name="01_SIMP.CS" 
+       	            Source="..\abNORM Example\01_Simple.cs" DiskId="1" />
+              <File Id="_02_Annotations.cs" LongName="02_Annotations.cs" Name="02_ANNO.CS" 
+	                   Source="..\abNORM Example\02_Annotations.cs" DiskId="1" />
+              <File Id="_03_Criterions.cs" LongName="03_Criterions.cs" Name="03_CRIT.CS" 
+       	            Source="..\abNORM Example\03_Criterions.cs" DiskId="1" />
+              <File Id="abNORM_Example.csproj" LongName="abNORM Example.csproj" Name="ABNORME.CSP" 
+	                   Source="..\abNORM Example\abNORM Example.csproj" DiskId="1" />
+              <File Id="Program.cs" LongName="Program.cs" Name="PROGRAM.CS" 
+       	            Source="..\abNORM Example\Program.cs" DiskId="1" />
+            </Component>
+            <Directory Id="Properties" LongName="Properties" Name="PROPERTI">
+              <Component Id="Example2" Guid="A681B282-077D-4890-BA00-61A8F0A259B5">
+                <File Id="AssemblyInfo.cs" LongName="AssemblyInfo.cs" Name="PASSEMBL.CS" 
+		                    Source="..\abNORM Test\Properties\AssemblyInfo.cs" DiskId="1" />
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+    <Feature Id="Complete" Title="abNORM 0.2" Description="The complete package." 
+             Display="expand" Level="1" ConfigurableDirectory="INSTALLDIR"
+             Absent="disallow"
+             AllowAdvertise="no">
+      <Feature Id="MainProgram" Title="abNORM Library" 
+               Description="The main abNORM.DLL plus all database Drivers" Level="1"
+               Absent="disallow"
+               AllowAdvertise="no"
+               InstallDefault="local">
+        <ComponentRef Id="abnorm_dll" />
+        <ComponentRef Id="ingres_client" />
+        <ComponentRef Id="postgres_client" />
+        <ComponentRef Id="mono_sec" />
+        <ComponentRef Id="lic_stuff" />
+      </Feature>
+      <Feature Id="ModelGen" Title="Model Generator"
+               Description="abNORM Model Generator" Level="1">
+        <ComponentRef Id="ModelGen" />
+      </Feature>
+      <Feature Id="Merges" Title="Merge Modules" 
+               Description="Include Merge modules for you own abNORM based Application" Level="1">
+        <ComponentRef Id="Merges" />
+      </Feature>
+      <Feature Id="Example" Title="Example" 
+               Description="A simple example for abNORM usage" Level="1000">
+        <ComponentRef Id="Example" />
+        <ComponentRef Id="Example2" />
+      </Feature>
+    </Feature>
+    <UIRef Id="WixUI_Mondo" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    <UI>
+    </UI>
+  </Product>
+</Wix>

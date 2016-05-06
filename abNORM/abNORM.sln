@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abNORM Example", "abNORM Example\abNORM Example.csproj", "{57A2BFD3-C075-492D-A49D-6526CD2C4952}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abNORM ModelGenerator", "abNORM ModelGenerator\abNORM ModelGenerator.csproj", "{5EE7AD22-A87F-4FFB-8732-BDB3CDA814CE}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abNORM Test", "abNORM Test\abNORM Test.csproj", "{0F3AC560-6CD6-4727-910A-CC40C7937444}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abNORM", "abNORM\abNORM.csproj", "{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F3AC560-6CD6-4727-910A-CC40C7937444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3AC560-6CD6-4727-910A-CC40C7937444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3AC560-6CD6-4727-910A-CC40C7937444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3AC560-6CD6-4727-910A-CC40C7937444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A2BFD3-C075-492D-A49D-6526CD2C4952}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A2BFD3-C075-492D-A49D-6526CD2C4952}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A2BFD3-C075-492D-A49D-6526CD2C4952}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A2BFD3-C075-492D-A49D-6526CD2C4952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE7AD22-A87F-4FFB-8732-BDB3CDA814CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE7AD22-A87F-4FFB-8732-BDB3CDA814CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE7AD22-A87F-4FFB-8732-BDB3CDA814CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE7AD22-A87F-4FFB-8732-BDB3CDA814CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

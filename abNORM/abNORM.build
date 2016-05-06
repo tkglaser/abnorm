@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project name="abNORM" default="build" basedir=".">
+  <description>abNORM build file</description>
+  <property name="debug" value="true" overwrite="false" />
+
+  <target name="build" description="compiles the source code">
+    <mkdir dir="bin" />
+    <csc target="library" output="bin/abNORM.dll" debug="${debug}" keyfile="abNORM/abNORM.snk">
+      <references>
+        <include name="System.Data.dll" />
+        <include name="System.Data.OracleClient.dll" />
+        <include name="external-libs/ingres-dataprovider/ingres2006-9.1.0-123-gpl-DotNet/Ingres.Client.dll" />
+      	<include name="external-libs/mysql-dataprovider/MySQLDriverCS-4.0.1/MySQLDriverCS.dll" />
+      	<include name="external-libs/postgres-dataprovider/Npgsql1.0-bin-ms2.0/Mono.Security.dll" />
+      	<include name="external-libs/postgres-dataprovider/Npgsql1.0-bin-ms2.0/Npgsql.dll" />
+      </references>
+      <sources>
+        <include name="abNORM/Attributes.cs" />
+        <include name="abNORM/ConnectionFactory.cs" />
+      	<include name="abNORM/ConnectionSettings.cs" />
+      	<include name="abNORM/Criterion.cs" />
+      	<include name="abNORM/Exceptions.cs" />
+      	<include name="abNORM/ForeignKeyDescriptor.cs" />
+      	<include name="abNORM/IConnection.cs" />
+      	<include name="abNORM/IDataProvider.cs" />
+      	<include name="abNORM/ITransaction.cs" />
+      	<include name="abNORM/TransactionTemplate.cs" />
+      	<include name="abNORM/Properties/AssemblyInfo.cs" />
+      	<include name="abNORM/Plugins/Other/XML/XMLConnection.cs" />
+      	<include name="abNORM/Plugins/Other/XML/XMLDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/SQLDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Ingres/IngresConnection.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Ingres/IngresDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/MSSQL/MSSQLConnection.cs" />
+      	<include name="abNORM/Plugins/SQLBased/MSSQL/MSSQLDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/MySQL/MySQLConnection.cs" />
+      	<include name="abNORM/Plugins/SQLBased/MySQL/MySQLDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Oracle/OracleConnection.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Oracle/OracleDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Oracle/OracleDBWrapper.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Postgres/PostgresConnection.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Postgres/PostgresDataProvider.cs" />
+      	<include name="abNORM/Plugins/SQLBased/Postgres/PostgresDBWrapper.cs" />
+      </sources>
+    </csc>
+    <csc target="exe" output="bin/abNORM.Modelgenerator.exe">
+      <references>
+        <include name="System.Drawing.dll" />
+        <include name="System.Data.dll" />
+        <include name="System.Data.OracleClient.dll" />
+        <include name="System.Windows.Forms.dll" />
+        <include name="bin/abNORM.dll" />
+        <include name="external-libs/ingres-dataprovider/ingres2006-9.1.0-123-gpl-DotNet/Ingres.Client.dll" />
+        <include name="external-libs/postgres-dataprovider/Npgsql2.0-preview-bin-ms2.0/Npgsql.dll" />
+      </references>
+      <sources>
+        <include name="abNORM ModelGenerator/ClassNameDlg.cs" />
+        <include name="abNORM ModelGenerator/ClassNameDlg.Designer.cs" />
+        <!--<include name="abNORM ModelGenerator/ClassNameDlg.resx" />-->
+        <include name="abNORM ModelGenerator/MainForm.cs" />
+        <include name="abNORM ModelGenerator/MainForm.Designer.cs" />
+        <!--<include name="abNORM ModelGenerator/MainForm.resx" />-->
+        <include name="abNORM ModelGenerator/Program.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/FileWriter.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/GeneratorFactory.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/IDMGClasses.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/IGenerator.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/IngresGenerator.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/OL.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/PostgresDBWrapper.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/OracleDBWrapper.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/PostgresGenerator.cs" />
+        <include name="abNORM ModelGenerator/BLLayer/SchemaGenerator.cs" />
+        <include name="abNORM ModelGenerator/Properties/AssemblyInfo.cs" />
+        <include name="abNORM ModelGenerator/Properties/Resources.Designer.cs" />
+        <!--<include name="abNORM ModelGenerator/Properties/Resources.resx" />-->
+        <include name="abNORM ModelGenerator/Properties/Settings.Designer.cs" />
+        <!--<include name="abNORM ModelGenerator/Properties/Settings.settings" />-->
+      </sources>
+    </csc>
+  </target>
+
+  <target name="clean">
+    <delete dir="bin" failonerror="false"/>
+  </target>
+
+  <target name="buildwininstaller">
+    <exec program="compile-installer.cmd" basedir="abNORM WiX Install"/>
+  </target>
+
+  <target name="install">
+    <exec program="gacutil">
+      <arg value="-i"/>
+      <arg value="bin/abNORM.dll" />
+    </exec>
+  </target>
+
+  <target name="uninstall">
+    <exec program="gacutil">
+      <arg value="-u"/>
+      <arg value="abNORM,Version=0.2.100.0" />
+    </exec>
+  </target>
+</project>

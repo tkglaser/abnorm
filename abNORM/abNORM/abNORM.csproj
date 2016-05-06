@@ -1,0 +1,106 @@
+﻿
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{62E41E44-CB3F-4CEB-B000-BE7A1FF938C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>abNORM</RootNamespace>
+    <AssemblyName>abNORM</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>abNORM.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\bin\Debug\abNORM.xml</DocumentationFile>
+    <OutputType>Library</OutputType>
+    <AssemblyName>abNORM</AssemblyName>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <RootNamespace>abNORM</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputType>Library</OutputType>
+    <AssemblyName>abNORM</AssemblyName>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <RootNamespace>abNORM</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ingres.Client, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7ab2d069d405ce41">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external-libs\ingres-dataprovider\ingres2006-9.1.0-123-gpl-DotNet\Ingres.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQLDriverCS, Version=3.0.1735.36021, Culture=neutral, PublicKeyToken=172f94dfb0faf263">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external-libs\mysql-dataprovider\MySQLDriverCS-4.0.1\MySQLDriverCS.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external-libs\postgres-dataprovider\Npgsql1.0-bin-ms2.0\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Criterion.cs" />
+    <Compile Include="ConnectionSettings.cs" />
+    <Compile Include="Attributes.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="ForeignKeyDescriptor.cs" />
+    <Compile Include="IDataProvider.cs" />
+    <Compile Include="Plugins\Other\XML\XMLConnection.cs" />
+    <Compile Include="Plugins\Other\XML\XMLDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\Ingres\IngresConnection.cs" />
+    <Compile Include="IConnection.cs" />
+    <Compile Include="ITransaction.cs" />
+    <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="Plugins\SQLBased\MSSQL\MSSQLConnection.cs" />
+    <Compile Include="Plugins\SQLBased\MSSQL\MSSQLDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\MySQL\MySQLConnection.cs" />
+    <Compile Include="Plugins\SQLBased\MySQL\MySQLDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\Oracle\OracleConnection.cs" />
+    <Compile Include="Plugins\SQLBased\Oracle\OracleDBWrapper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Plugins\SQLBased\Oracle\OracleDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\Ingres\IngresDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\SQLDataProvider.cs" />
+    <Compile Include="Plugins\SQLBased\Postgres\PostgresConnection.cs" />
+    <Compile Include="Plugins\SQLBased\Postgres\PostgresDBWrapper.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Plugins\SQLBased\Postgres\PostgresDataProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="abNORM.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
